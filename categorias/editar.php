@@ -3,8 +3,12 @@
 require('../database/conexao.php');
 
 $idCategoria = $_GET['id'];
-$sql = "SELECT * FROM tbl_categoria WHERE id = $idCategoria"
+$sql = "SELECT * FROM tbl_categoria WHERE id = $idCategoria";
 
+
+$resultado = mysqli_query($conexao, $sql);
+
+$categoria = mysqli_fetch_array($resultado);
 
 ?>
 

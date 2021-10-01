@@ -65,7 +65,7 @@ $resultado = mysqli_query($conexao, $sql);
 
                     <div class="input-group span2">
                         <label for="descricao">Descrição</label>
-                        <input type="text" name="descricao" id="descricao"/>
+                        <input type="text" name="descricao" id="descricao" value="<?php echo $categoria["descricao"]?>"/>
                     </div>
                     <button type="button" onclick="javascript:window.location.href = '../produtos/'">Cancelar</button>
                     <button>Salvar</button>
