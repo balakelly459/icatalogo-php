@@ -1,6 +1,6 @@
 create database icatalogo;
 use icatalogo;
- 
+
 create table tbl_produto(
     id int primary key auto_increment,
     descricao varchar(255) not null,
