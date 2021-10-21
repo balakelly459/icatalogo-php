@@ -82,8 +82,37 @@ switch ($_POST['acao']) {
             break;
 
             case 'editar':
+
+                //atualizando a imagem do produto
+                $produtoId = $_POST["produtoId"];
+
+                if($_FILES["foto"]["error"] != UPLOAD_ERR_NO_FILE){
+
+                    $sqlImagem = "SELECT imagem FROM tbl_produto WHERE id = $produtoId";
+
+                    $resultado = $mysqli_query($conexao, $sqlImagem);
+                    $produto = mysqli_fetch_array($resultado);
+
+                    // echo '/fotos/' . $produtos["imagem"];exit;
+                }
+
+                //captura os dados de texto do produto
                  $id = $_POST["id"];
                  $descricao = $_POST["descricao"];
+
+                 $peso = str_replace(".", "", $_POST["peso"]);
+                 $peso = str_replace(",", ".", $peso);
+
+                 $valor = str_replace(".", "", $_POST["valor"]);
+                 $valor = str_replace(",", ".", $valor);
+
+                 $quantidade = $_POST["quantidade"];
+                 $cor = $_POST["cor"];
+                 $tamanho = $_POST["tamanho"];
+                 $desconto = $_POST["desconto"];
+                 $categoriaID = $_POST["categoria"];
+
+                
 
                  $sql = "UPDATE tbl_categoria SET descricao = '$descricao' WHERE id = $id";
                 //  echo $sql; exit;
@@ -91,6 +120,8 @@ switch ($_POST['acao']) {
 
                 header('location: index.php');
             break;
+
+           
     
     default:
         # code...
